@@ -6,23 +6,17 @@ export default function RouteSwitch({ routes }) {
 
     const renderRouteSections = () => {
         return (
-            // routes.map( ({ path, component: Component }) => {
-            routes.map( ({ title, path, component }) => {
-                return (
-                    <Switch key={title}>
-                        {/* <Route exact path={path} component={Component}/> */}
-                        <Route exact path={path}>
-                            {component}
-                        </Route>
-                    </Switch>
-                )
+            routes.map( ({ title, path, component: Component }) => {
+                return <Route exact path={path} render={(routerProps) => <Component {...routerProps} /> } />
             })
         )
     }
 
     return (
         <div className="route-show">
-            {renderRouteSections()}
+            <Switch>
+                {renderRouteSections()}
+            </Switch>
         </div>
     )
 }
