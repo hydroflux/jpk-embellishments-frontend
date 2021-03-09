@@ -10,6 +10,7 @@ import Supplies from './containers/main/Supplies'
 import Tutorials from './containers/main/Tutorials';
 import Footer from './containers/footer/Footer';
 
+import { useState } from 'react'
 import { BrowserRouter as Router } from 'react-router-dom'
 
 function App() {
@@ -24,11 +25,14 @@ function App() {
     { title: "Contact", path: "/contact", component: <Contact /> }
   ]
 
+  const [ showDrawer , toggleSlideDrawer ] = useState(false)
+  const toggleDrawer = () => toggleSlideDrawer(!showDrawer)
+
   return (
     <div className="App">
       <Router>
-        <Header routes={routes}/>
-        <Main routes={routes}/>
+        <Header routes={routes} toggleDrawer={toggleDrawer}/>
+        <Main routes={routes} showDrawer={showDrawer} toggleDrawer={toggleDrawer}/>
         <Footer />
       </Router>
     </div>
