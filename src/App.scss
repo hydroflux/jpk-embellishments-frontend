@@ -28,6 +28,15 @@ main {
 footer {
     height: 5rem;
     box-shadow: 0 -2px 3px #00000069;
+
+    .social-buttons {
+        // display: flex;
+        // border: 1px solid black;
+        
+        .social-media-button {
+            margin: 0.5rem 0.25rem;
+        }
+    }
 }
 
 // .App-logo {
