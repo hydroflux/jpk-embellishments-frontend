@@ -24,7 +24,7 @@ function App() {
     fetch( macrameURL )
       .then( parseHTTPResponse )
       .then( setMacrame )
-  }, [] )
+  }, [macrameURL] )
 
   const routes = [
     { title: "Home", path: "/" , component: Home, cards: macrames },
