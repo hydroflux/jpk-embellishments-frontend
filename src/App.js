@@ -10,12 +10,24 @@ import Supplies from './containers/main/Supplies'
 import Tutorials from './containers/main/Tutorials';
 import Footer from './containers/footer/Footer';
 
-import { useState } from 'react'
+import { useEffect , useState } from 'react'
 
 function App() {
 
+  const backendURL = `http://localhost:3000`
+  const macrameURL = `${backendURL}/macrames`
+  const parseHTTPResponse = response => response.json()
+
+
+  const [ macrames , setMacrame ] = useState([])
+  useEffect( () => {
+    fetch( macrameURL )
+      .then( parseHTTPResponse )
+      .then( setMacrame )
+  }, [] )
+
   const routes = [
-    { title: "Home", path: "/" , component: Home },
+    { title: "Home", path: "/" , component: Home, cards: macrames },
     { title: "Shop", path: "/shop", component: Shop },
     { title: "Supplies", path: "/supplies", component: Supplies },
     { title: "Tutorials", path: "/tutorials", component: Tutorials },
@@ -31,9 +43,6 @@ function App() {
     <div className="App">
         <Header routes={routes} toggleDrawer={toggleDrawer}/>
         <Main routes={routes} showDrawer={showDrawer} toggleDrawer={toggleDrawer}/>
-        {/* <Button variant="contained" color="primary">
-          Hello World
-        </Button> */}
         <Footer />
     </div>
   );
