@@ -14,7 +14,7 @@ export default function Header({ routes , toggleDrawer }) {
         <header>
             <nav className="navigation"> 
                 {renderRouteLinks()}
-                <i class="material-icons" onClick={toggleDrawer}>shopping_cart</i>
+                <i className="material-icons" onClick={toggleDrawer}>shopping_cart</i>
             </nav>
         </header>
     )

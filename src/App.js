@@ -11,6 +11,8 @@ import Tutorials from './containers/main/Tutorials';
 import Footer from './containers/footer/Footer';
 
 import { useEffect , useState } from 'react'
+// import { useState } from 'react'
+import Gallery from './containers/main/Gallery';
 
 function App() {
 
@@ -19,6 +21,7 @@ function App() {
   const parseHTTPResponse = response => response.json()
 
 
+  // const macrames = 
   const [ macrames , setMacrame ] = useState([])
   useEffect( () => {
     fetch( macrameURL )
@@ -33,7 +36,8 @@ function App() {
     { title: "Tutorials", path: "/tutorials", component: Tutorials },
     { title: "About", path: "/about", component: About },
     { title: "FAQ's", path: "/questions", component: Questions },
-    { title: "Contact", path: "/contact", component: Contact }
+    { title: "Contact", path: "/contact", component: Contact },
+    { title: "Gallery", path: "/gallery", component: Gallery }
   ]
 
   const [ showDrawer , toggleSlideDrawer ] = useState(false)
